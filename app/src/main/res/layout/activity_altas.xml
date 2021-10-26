@@ -21,19 +21,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnCancelar"
-        android:layout_width="169dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="28dp"
-        android:backgroundTint="#4CAF50"
-        android:text="Cancelar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/btnRegistrar"
-        app:layout_constraintTop_toBottomOf="@+id/chHecha" />
+    <View
+        android:id="@+id/divider"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="4dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintTop_toBottomOf="@+id/lblNuevaTarea"
+        tools:layout_editor_absoluteX="0dp" />
 
     <EditText
         android:id="@+id/txtNombre"
@@ -47,6 +42,19 @@
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <EditText
+        android:id="@+id/txtDescripcion"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Descripción"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
 
     <EditText
         android:id="@+id/txtFecha"
@@ -70,6 +78,16 @@
         android:text="Prioridad"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtFecha" />
+
+    <Spinner
+        android:id="@+id/spinPrioridad"
+        android:layout_width="237dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.547"
+        app:layout_constraintStart_toEndOf="@+id/lblPrioridad"
         app:layout_constraintTop_toBottomOf="@+id/txtFecha" />
 
     <EditText
@@ -96,29 +114,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtCoste" />
 
-    <Spinner
-        android:id="@+id/spinPrioridad"
-        android:layout_width="237dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.547"
-        app:layout_constraintStart_toEndOf="@+id/lblPrioridad"
-        app:layout_constraintTop_toBottomOf="@+id/txtFecha" />
-
-    <EditText
-        android:id="@+id/txtDescripcion"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Descripción"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
-
     <Button
         android:id="@+id/btnRegistrar"
         android:layout_width="170dp"
@@ -131,13 +126,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chHecha" />
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="409dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="4dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintTop_toBottomOf="@+id/lblNuevaTarea"
-        tools:layout_editor_absoluteX="0dp" />
+    <Button
+        android:id="@+id/btnCancelar"
+        android:layout_width="169dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="28dp"
+        android:backgroundTint="#4CAF50"
+        android:text="Cancelar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/btnRegistrar"
+        app:layout_constraintTop_toBottomOf="@+id/chHecha" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
