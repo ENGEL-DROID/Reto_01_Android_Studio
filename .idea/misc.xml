@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/ENGEL - CHUWI/Desktop/DAM 2/PROG MULTI Y DISP MOVILES/Proyectos_Android/Reto_01_Android/app/src/main/res/layout/activity_altas.xml" value="0.2857142857142857" />
-        <entry key="..\:/Users/ENGEL - CHUWI/Desktop/DAM 2/PROG MULTI Y DISP MOVILES/Proyectos_Android/Reto_01_Android/app/src/main/res/layout/activity_lista.xml" value="0.2328125" />
-        <entry key="..\:/Users/ENGEL - CHUWI/Desktop/DAM 2/PROG MULTI Y DISP MOVILES/Proyectos_Android/Reto_01_Android/app/src/main/res/layout/activity_main.xml" value="0.2328125" />
-        <entry key="..\:/Users/ENGEL - CHUWI/Desktop/DAM 2/PROG MULTI Y DISP MOVILES/Proyectos_Android/Reto_01_Android/app/src/main/res/layout/activity_tarea.xml" value="0.2328125" />
+        <entry key="..\:/Users/in2dam/AndroidStudioProjects/Reto_01_Android_Studio/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.20555555555555555" />
+        <entry key="..\:/Users/in2dam/AndroidStudioProjects/Reto_01_Android_Studio/app/src/main/res/drawable/ic_launcher_background.xml" value="0.20555555555555555" />
+        <entry key="..\:/Users/in2dam/AndroidStudioProjects/Reto_01_Android_Studio/app/src/main/res/layout/activity_altas.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/in2dam/AndroidStudioProjects/Reto_01_Android_Studio/app/src/main/res/layout/activity_lista.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/in2dam/AndroidStudioProjects/Reto_01_Android_Studio/app/src/main/res/layout/activity_main.xml" value="0.28442028985507245" />
+        <entry key="..\:/Users/in2dam/AndroidStudioProjects/Reto_01_Android_Studio/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3828125" />
+        <entry key="..\:/Users/in2dam/AndroidStudioProjects/Reto_01_Android_Studio/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.20555555555555555" />
       </map>
     </option>
   </component>
