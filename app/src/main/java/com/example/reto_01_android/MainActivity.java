@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox chHecha;
     private Spinner spinPrioridad;
     private String nombre, descripcion, fecha, coste, prioridad;
+    private boolean hecha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void registrar(View v){
-
+        nombre = txtNombre.getText().toString();
+        descripcion = txtDescripcion.getText().toString();
+        fecha = txtFecha.getText().toString();
+        coste = txtCoste.getText().toString();
+        prioridad = spinPrioridad.getSelectedItem().toString();
+        hecha = chHecha.isSelected();
     }
 
 
