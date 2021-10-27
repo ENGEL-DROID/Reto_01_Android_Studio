@@ -3,6 +3,7 @@ package com.example.reto_01_android;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         Password=(EditText) findViewById(R.id.Password);
     }
 
-    public void entrar(View v) {
+    public void CrearCuenta(View v) {
         String usu=Usuario.getText().toString();
         String pass=Password.getText().toString();
         SharedPreferences preferencias=getSharedPreferences("agenda",
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         editor.commit();
         Toast.makeText(this,"Datos grabados", Toast.LENGTH_LONG).show();
     }
-    public void recuperar(View v) {
+    public void RecuperarContra(View v) {
         String usu=Usuario.getText().toString();
         SharedPreferences prefe=getSharedPreferences("agenda",
                 Context.MODE_PRIVATE);
@@ -48,6 +49,27 @@ public class MainActivity extends AppCompatActivity {
         else {
             Password.setText(d);
         }
+    }
+
+    public void Entrar(View v)
+    {
+       // String usu=Usuario.getText().toString();
+        //String pass=Password.getText().toString();
+        //SharedPreferences prefe=getSharedPreferences("agenda",
+        //        Context.MODE_PRIVATE);
+        //String d=prefe.getString(usu,"");
+        //String d1=prefe.getString("",pass);
+        //if(d.length()==0 && d1.length()==0)
+        //{
+            Intent i = new Intent(this, Pantalla2.class );
+            startActivity(i);
+        //}
+        //else
+        //{
+          //  Toast.makeText(this,"No existe dicha cuenta en la agenda",
+           //         Toast.LENGTH_LONG).show();
+        //}
+
     }
 
 }

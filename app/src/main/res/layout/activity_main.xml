@@ -24,12 +24,13 @@
         android:id="@+id/Password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Usuario" />
 
@@ -37,11 +38,12 @@
         android:id="@+id/textView2"
         android:layout_width="272dp"
         android:layout_height="59dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="48dp"
         android:text="Iniciar Sesion:"
         android:textAlignment="center"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,29 +51,40 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="72dp"
-        android:onClick="entrar"
-        android:text="Entrar"
+        android:onClick="CrearCuenta"
+        android:text="Crear Cuenta"
         android:textColor="#FBFBFB"
         android:textColorHint="#0EEAD5"
         app:iconTint="#BC0E0E"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Password" />
+        app:layout_constraintTop_toBottomOf="@+id/Password"
+        app:layout_constraintVertical_bias="0.07" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="56dp"
-        android:onClick="recuperar"
-        android:text="Recuperar"
+        android:layout_marginTop="24dp"
+        android:onClick="RecuperarContra"
+        android:text="Recuperar Contraseña"
         android:textColor="#FBFBFB"
         android:textColorHint="#0EEAD5"
         app:iconTint="#BC0E0E"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Password" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="Entrar"
+        android:text="Entrar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
