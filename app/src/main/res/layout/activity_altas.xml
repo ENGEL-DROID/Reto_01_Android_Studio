@@ -84,29 +84,31 @@
         app:layout_constraintTop_toBottomOf="@+id/lblPrioridad" />
 
     <Button
-        android:id="@+id/btnRegistrar"
+        android:id="@+id/btnPendientes"
         android:layout_width="150dp"
         android:layout_height="48dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginEnd="28dp"
+        android:backgroundTint="#4CAF50"
+        android:onClick="irLista"
+        android:text="Cancelar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/btnHechas"
+        app:layout_constraintTop_toBottomOf="@+id/txtCoste"
+        app:layout_constraintVertical_bias="0.951" />
+
+    <Button
+        android:id="@+id/btnHechas"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="28dp"
         android:backgroundTint="#4CAF50"
         android:onClick="alta"
         android:text="Registrar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCoste" />
-
-    <Button
-        android:id="@+id/btnCancelar"
-        android:layout_width="150dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="28dp"
-        android:backgroundTint="#4CAF50"
-        android:onClick="irMain"
-        android:text="Cancelar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/btnRegistrar"
-        app:layout_constraintTop_toBottomOf="@+id/txtCoste" />
+        app:layout_constraintTop_toBottomOf="@+id/txtCoste"
+        app:layout_constraintVertical_bias="0.951" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void irAltas(){
+    public void irAltas(View v){
         try {
         Intent i = new Intent(this,AltasActivity.class );
         startActivity(i);
@@ -28,35 +28,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void irAltasView(View v){
+    public void irLista(View v){
         try {
-            Intent i = new Intent(this,AltasActivity.class );
+            Intent i = new Intent(this,ListaActivity.class );
             startActivity(i);
         } catch (Exception e){
             Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        try {
-            getMenuInflater().inflate(R.menu.menuopciones, menu);
-            return true;
-        } catch (Exception e){
-            Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
-            return false;
-        }
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.btnAdd){
-            irAltas();
-        //Toast.makeText(this,"Item seleccionado",Toast.LENGTH_LONG).show();
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
 
 }

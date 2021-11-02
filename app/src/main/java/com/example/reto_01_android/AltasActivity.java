@@ -1,29 +1,21 @@
 package com.example.reto_01_android;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.app.TimePickerDialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -48,8 +40,8 @@ public class AltasActivity extends AppCompatActivity implements AdapterView.OnIt
         txtDescripcion = findViewById(R.id.txtDescripcion);
         txtFecha = findViewById(R.id.txtFecha);
         txtCoste = findViewById(R.id.txtCoste);
-        btnRegistrar = findViewById(R.id.btnRegistrar);
-        btnCancelar = findViewById(R.id.btnCancelar);
+        btnRegistrar = findViewById(R.id.btnHechas);
+        btnCancelar = findViewById(R.id.btnPendientes);
 
         spinPrioridad = findViewById(R.id.spinPrioridad);
         spinPrioridad.setOnItemSelectedListener(this);
@@ -66,6 +58,15 @@ public class AltasActivity extends AppCompatActivity implements AdapterView.OnIt
         txtFecha.setText("");
         txtCoste.setText("");
         Intent i = new Intent(this,MainActivity.class );
+        startActivity(i);
+    }
+
+    public void irLista(View v){
+        txtNombre.setText("");
+        txtDescripcion.setText("");
+        txtFecha.setText("");
+        txtCoste.setText("");
+        Intent i = new Intent(this,ListaActivity.class );
         startActivity(i);
     }
 
@@ -111,7 +112,7 @@ public class AltasActivity extends AppCompatActivity implements AdapterView.OnIt
             txtFecha.setText("");
             txtCoste.setText("");
             Toast.makeText(this, "Tarea guardada con éxito! ",Toast.LENGTH_SHORT).show();
-            irMain(v);
+            irLista(v);
         } else {
             Toast.makeText(this, "Ingrese datos por favor! ",Toast.LENGTH_SHORT).show();
         }

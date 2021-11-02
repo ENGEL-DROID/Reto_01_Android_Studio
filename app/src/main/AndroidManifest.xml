@@ -21,6 +21,9 @@
         <activity
             android:name="com.example.reto_01_android.AltasActivity"
             android:label="@string/app_alta" />
+        <activity
+            android:name="com.example.reto_01_android.ListaActivity"
+            android:label="@string/app_lista" />
 
     </application>
 
