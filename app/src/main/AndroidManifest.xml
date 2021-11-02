@@ -18,6 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.reto_01_android.AltasActivity"
+            android:label="@string/app_alta" />
+
     </application>
 
 </manifest>

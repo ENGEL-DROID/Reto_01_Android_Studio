@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Tarea Nueva</string>
+    <string name="app_name">App ToDo</string>
+    <string name="app_alta">Tarea Nueva</string>
 </resources>

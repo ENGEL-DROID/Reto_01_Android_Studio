@@ -9,7 +9,9 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.View;
@@ -32,7 +34,7 @@ public class AltasActivity extends AppCompatActivity implements AdapterView.OnIt
     private Button btnRegistrar, btnCancelar;
     private Spinner spinPrioridad;
     private String nombre, descripcion, fecha, coste, prioridad;
-    private String[] prioridades = new String[]{"Urgente", "Alta", "Media", "Baja"};
+    private String[] prioridades = new String[]{"Baja", "Media", "Alta", "Urgente"};
     private DatePickerDialog datePickerDialog;
     private int codigo = 0;
 
@@ -58,38 +60,68 @@ public class AltasActivity extends AppCompatActivity implements AdapterView.OnIt
         txtFecha.setText(getTodaysDate());
     }
 
-    // ----------------------------  SQLite -------------------------------
-    public void alta(View v) {
-        codigo++;
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
-        SQLiteDatabase bd = admin.getWritableDatabase();
-        nombre = txtNombre.getText().toString();
-        descripcion = txtDescripcion.getText().toString();
-        fecha = txtFecha.getText().toString();
-        coste = txtCoste.getText().toString();
-        prioridad = spinPrioridad.getSelectedItem().toString();
-        ContentValues registro = new ContentValues();
-        registro.put("codigo", codigo);
-        registro.put("nombre", nombre);
-        registro.put("descripcion", descripcion);
-        registro.put("fecha", fecha);
-        registro.put("prioridad", prioridad);
-        registro.put("coste", coste);
-        bd.insert("tareas", null, registro);
-        bd.close();
+    public void irMain(View v){
         txtNombre.setText("");
         txtDescripcion.setText("");
         txtFecha.setText("");
         txtCoste.setText("");
-        Toast.makeText(this, "Tarea guardada con éxito! " + codigo + nombre + descripcion + fecha + prioridad + coste,
-                Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(this,MainActivity.class );
+        startActivity(i);
+    }
+
+    // ----------------------------  SQLite -------------------------------
+    public void alta(View v) {
+        boolean control = true;
+        int color = Color.MAGENTA;
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+        nombre = txtNombre.getText().toString();
+        if(nombre.length() < 1){
+            txtNombre.setHint("Ingrese un Nombre por favor! ");
+            txtNombre.setHintTextColor(color);
+            control = false;
+        }
+        descripcion = txtDescripcion.getText().toString();
+        if(descripcion.length() < 1){
+            txtDescripcion.setHint("Ingrese una Descripción por favor! ");
+            txtDescripcion.setHintTextColor(color);
+            control = false;
+        }
+        coste = txtCoste.getText().toString();
+        if(txtCoste.length() < 1){
+            txtCoste.setHint("Ingrese un Coste por favor! ");
+            txtCoste.setHintTextColor(color);
+            control = false;
+        }
+        if(control){
+            codigo++;
+            fecha = txtFecha.getText().toString();
+            prioridad = spinPrioridad.getSelectedItem().toString();
+            ContentValues registro = new ContentValues();
+            registro.put("codigo", codigo);
+            registro.put("nombre", nombre);
+            registro.put("descripcion", descripcion);
+            registro.put("fecha", fecha);
+            registro.put("prioridad", prioridad);
+            registro.put("coste", coste);
+            bd.insert("tareas", null, registro);
+            bd.close();
+            txtNombre.setText("");
+            txtDescripcion.setText("");
+            txtFecha.setText("");
+            txtCoste.setText("");
+            Toast.makeText(this, "Tarea guardada con éxito! ",Toast.LENGTH_SHORT).show();
+            irMain(v);
+        } else {
+            Toast.makeText(this, "Ingrese datos por favor! ",Toast.LENGTH_SHORT).show();
+        }
     }
 
     // ----------------------------  Spinner Prioridades -------------------------------
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Toast msg = Toast.makeText(this, "Se ha seleccionado un item", Toast.LENGTH_SHORT);
-        msg.show();
+       // Toast msg = Toast.makeText(this, "Se ha seleccionado un item", Toast.LENGTH_SHORT);
+       // msg.show();
     }
 
     @Override

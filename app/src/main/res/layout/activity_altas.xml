@@ -85,7 +85,7 @@
 
     <Button
         android:id="@+id/btnRegistrar"
-        android:layout_width="170dp"
+        android:layout_width="150dp"
         android:layout_height="48dp"
         android:layout_marginStart="32dp"
         android:backgroundTint="#4CAF50"
@@ -97,10 +97,11 @@
 
     <Button
         android:id="@+id/btnCancelar"
-        android:layout_width="169dp"
+        android:layout_width="150dp"
         android:layout_height="48dp"
         android:layout_marginEnd="28dp"
         android:backgroundTint="#4CAF50"
+        android:onClick="irMain"
         android:text="Cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
