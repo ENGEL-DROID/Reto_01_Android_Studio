@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -61,7 +62,7 @@ public class AltasActivity extends AppCompatActivity implements AdapterView.OnIt
         startActivity(i);
     }
 
-    public void irLista(View v){
+    public void irListadeAltas(View v){
         txtNombre.setText("");
         txtDescripcion.setText("");
         txtFecha.setText("");
@@ -76,6 +77,16 @@ public class AltasActivity extends AppCompatActivity implements AdapterView.OnIt
         int color = Color.MAGENTA;
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
+        // ------------------- Inicio Calcular el valor del código ---------------------
+        int n = 0;
+        Cursor fila = bd.rawQuery("select * from tareas", null);
+        fila.moveToFirst();
+        while(!fila.isAfterLast()){
+            n++;
+            fila.moveToNext();
+        }
+        codigo = n + 1;
+        // ------------------- Fin Calcular el valor del código ---------------------
         nombre = txtNombre.getText().toString();
         if(nombre.length() < 1){
             txtNombre.setHint("Ingrese un Nombre por favor! ");
@@ -95,7 +106,6 @@ public class AltasActivity extends AppCompatActivity implements AdapterView.OnIt
             control = false;
         }
         if(control){
-            codigo++;
             fecha = txtFecha.getText().toString();
             prioridad = spinPrioridad.getSelectedItem().toString();
             ContentValues registro = new ContentValues();
@@ -111,8 +121,8 @@ public class AltasActivity extends AppCompatActivity implements AdapterView.OnIt
             txtDescripcion.setText("");
             txtFecha.setText("");
             txtCoste.setText("");
-            Toast.makeText(this, "Tarea guardada con éxito! ",Toast.LENGTH_SHORT).show();
-            irLista(v);
+            Toast.makeText(this, "Tarea guardada con éxito! " + codigo,Toast.LENGTH_SHORT).show();
+            irListadeAltas(v);
         } else {
             Toast.makeText(this, "Ingrese datos por favor! ",Toast.LENGTH_SHORT).show();
         }

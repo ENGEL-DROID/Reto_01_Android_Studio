@@ -24,6 +24,9 @@
         <activity
             android:name="com.example.reto_01_android.ListaActivity"
             android:label="@string/app_lista" />
+        <activity
+            android:name="com.example.reto_01_android.TareaActivity"
+            android:label="@string/app_tarea" />
 
     </application>
 
