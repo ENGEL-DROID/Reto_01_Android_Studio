@@ -115,13 +115,14 @@ public class AltasActivity extends AppCompatActivity implements AdapterView.OnIt
             registro.put("fecha", fecha);
             registro.put("prioridad", prioridad);
             registro.put("coste", coste);
+            registro.put("hecha", "no");
             bd.insert("tareas", null, registro);
             bd.close();
             txtNombre.setText("");
             txtDescripcion.setText("");
             txtFecha.setText("");
             txtCoste.setText("");
-            Toast.makeText(this, "Tarea guardada con éxito! " + codigo,Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Tarea guardada con éxito! ",Toast.LENGTH_SHORT).show();
             irListadeAltas(v);
         } else {
             Toast.makeText(this, "Ingrese datos por favor! ",Toast.LENGTH_SHORT).show();

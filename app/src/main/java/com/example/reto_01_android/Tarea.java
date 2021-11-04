@@ -4,15 +4,16 @@ import java.io.Serializable;
 
 public class Tarea implements Serializable {
 
-    private String codigo, nombre, descripcion, fecha, prioridad, coste;
+    private String codigo, nombre, descripcion, fecha, prioridad, coste, hecha;
 
-    public Tarea(String codigo, String nombre, String descripcion, String fecha, String prioridad, String coste) {
+    public Tarea(String codigo, String nombre, String descripcion, String fecha, String prioridad, String coste, String hecha) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fecha = fecha;
         this.prioridad = prioridad;
         this.coste = coste;
+        this.hecha = hecha;
     }
 
     public String getCodigo() {
@@ -61,5 +62,13 @@ public class Tarea implements Serializable {
 
     public void setCoste(String coste) {
         this.coste = coste;
+    }
+
+    public String getHecha() {
+        return hecha;
+    }
+
+    public void setHecha(String hecha) {
+        this.hecha = hecha;
     }
 }

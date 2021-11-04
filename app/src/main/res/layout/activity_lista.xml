@@ -27,28 +27,44 @@
 
     <Button
         android:id="@+id/btnPendientes"
-        android:layout_width="150dp"
+        android:layout_width="130dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="28dp"
         android:backgroundTint="#4CAF50"
+        android:onClick="verTareasPendientes"
         android:text="Pendientes"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toStartOf="@+id/btTodas"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnHechas"
         app:layout_constraintTop_toBottomOf="@+id/listaMarco"
-        app:layout_constraintVertical_bias="0.088" />
+        app:layout_constraintVertical_bias="0.325" />
+
+    <Button
+        android:id="@+id/btTodas"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#4CAF50"
+        android:onClick="verTareasTodas"
+        android:text="Todas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnPendientes"
+        app:layout_constraintTop_toBottomOf="@+id/listaMarco"
+        app:layout_constraintVertical_bias="0.325" />
 
     <Button
         android:id="@+id/btnHechas"
-        android:layout_width="150dp"
+        android:layout_width="100dp"
         android:layout_height="48dp"
-        android:layout_marginStart="24dp"
         android:backgroundTint="#4CAF50"
+        android:onClick="verTareasHechas"
         android:text="Hechas"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnPendientes"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listaMarco"
-        app:layout_constraintVertical_bias="0.088" />
+        app:layout_constraintVertical_bias="0.325" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
