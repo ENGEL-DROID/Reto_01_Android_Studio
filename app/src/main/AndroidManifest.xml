@@ -27,6 +27,9 @@
         <activity
             android:name="com.example.reto_01_android.TareaActivity"
             android:label="@string/app_tarea" />
+        <activity
+            android:name="com.example.reto_01_android.Pantalla2"
+            android:label="@string/app_tarea" />
 
     </application>
 

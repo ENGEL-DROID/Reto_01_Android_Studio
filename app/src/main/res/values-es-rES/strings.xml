@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">App ToDo</string>
+    <string name="app_alta">Tarea Nueva</string>
+    <string name="app_lista">Lista de Tareas</string>
+    <string name="app_tarea">Tarea</string>
+    <string name="buttonGuardar">Guardar</string>
+    <string name="buttonEntrar">Entrar</string>
+    <string name="checkBox">Recordar Contraseña</string>
+    <string name="textView2">Iniciar Sesion:</string>
+    <string name="tareas">Tareas:</string>
+    <string name="volver">Volver</string>
 </resources>
