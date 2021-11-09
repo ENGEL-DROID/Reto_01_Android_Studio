@@ -1,5 +1,6 @@
 package com.example.reto_01_android;
 
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -19,7 +20,7 @@ public class TareaActivity extends AppCompatActivity {
     private TextView nombreTarea, descTarea, fechaTarea, impTarea, costoTarea;
     private Tarea tareaObj;
     private Switch hecha;
-    private ImageButton btnAtras, btnBorrar;
+    private ImageButton btnAtras, btnBorrar, btnEdit, btnSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +33,19 @@ public class TareaActivity extends AppCompatActivity {
         impTarea = (TextView) findViewById(R.id.txtImpTarea);
         costoTarea = (TextView) findViewById(R.id.txtCostoTarea);
 
+        nombreTarea.setEnabled(false);
+        descTarea.setEnabled(false);
+        fechaTarea.setEnabled(false);
+        impTarea.setEnabled(false);
+        costoTarea.setEnabled(false);
+
         hecha = (Switch) findViewById(R.id.swichtHecha);
         btnAtras = (ImageButton) findViewById(R.id.btnAtras);
+        btnEdit = (ImageButton) findViewById(R.id.btnEdit);
+        btnSave = (ImageButton) findViewById(R.id.btnSave);
         btnBorrar = (ImageButton) findViewById(R.id.btnBorrar);
+
+        btnSave.setVisibility(View.INVISIBLE);
 
         Intent i = getIntent();
         tareaObj = (Tarea) getIntent().getSerializableExtra("tarea");
@@ -63,6 +74,59 @@ public class TareaActivity extends AppCompatActivity {
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
         }
+    }
+
+    public void editarTarea(View v){
+        nombreTarea.setEnabled(true);
+        descTarea.setEnabled(true);
+        fechaTarea.setEnabled(true);
+        impTarea.setEnabled(true);
+        costoTarea.setEnabled(true);
+        btnEdit.setVisibility(View.INVISIBLE);
+        btnSave.setVisibility(View.VISIBLE);
+        btnAtras.setEnabled(false);
+        btnBorrar.setEnabled(false);
+        hecha.setEnabled(false);
+    }
+
+    public void saveTarea(View v){
+        modificarTarea(tareaObj);
+        nombreTarea.setEnabled(false);
+        descTarea.setEnabled(false);
+        fechaTarea.setEnabled(false);
+        impTarea.setEnabled(false);
+        costoTarea.setEnabled(false);
+        btnEdit.setVisibility(View.VISIBLE);
+        btnSave.setVisibility(View.INVISIBLE);
+        btnAtras.setEnabled(true);
+        btnBorrar.setEnabled(true);
+        hecha.setEnabled(true);
+    }
+
+    public void modificarTarea(Tarea tarea){
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+        int codigo = Integer.parseInt(tarea.getCodigo());
+        String nombre = nombreTarea.getText().toString();
+        String descripcion = descTarea.getText().toString();
+        String fecha = fechaTarea.getText().toString();
+        String prioridad = impTarea.getText().toString();
+        String coste = costoTarea.getText().toString();
+        ContentValues registro = new ContentValues();
+        registro.put("codigo", codigo);
+        registro.put("nombre", nombre);
+        registro.put("descripcion", descripcion);
+        registro.put("fecha", fecha);
+        registro.put("prioridad", prioridad);
+        registro.put("coste", coste);
+        registro.put("hecha", "no");
+        //int cant = bd.update("tareas", registro, "codigo=" + codigo,null);
+        bd.update("tareas", registro, "codigo=" + codigo,null);
+        bd.close();
+        /*if (cant == 1)
+            Toast.makeText(this, "Tarea hecha!",Toast.LENGTH_SHORT).show();
+        else
+            Toast.makeText(this, "No existe una tarea con ese código!", Toast.LENGTH_SHORT).show();*/
     }
 
     public void setBorrarTarea(){

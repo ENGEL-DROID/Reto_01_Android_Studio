@@ -9,138 +9,91 @@
         android:id="@+id/lblNombreTarea"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:background="#EBFFE0"
         android:text="Título:"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="24dp" />
+        android:textColor="@color/textview_disablecolor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/lblDescTarea"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
         android:background="#EBFFE0"
         android:text="Descripción:"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="120dp" />
-
-    <TextView
-        android:id="@+id/txtImpTarea"
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:text="Importancia de la Tarea"
-        android:textSize="16sp"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="293dp" />
+        android:textColor="@color/textview_disablecolor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNombreTarea" />
 
     <TextView
         android:id="@+id/lblCostoTarea"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
         android:background="#EBFFE0"
         android:text="Costo:"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="332dp" />
-
-    <TextView
-        android:id="@+id/txtCostoTarea"
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:text="Costo de la Tarea"
-        android:textSize="16sp"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="351dp" />
-
-    <TextView
-        android:id="@+id/txtDescTarea"
-        android:layout_width="340dp"
-        android:layout_height="60dp"
-        android:text="Descripción de la Tarea"
-        android:textSize="16sp"
-        android:textStyle="italic"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="139dp" />
+        android:textColor="@color/textview_disablecolor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtImpTarea" />
 
     <TextView
         android:id="@+id/lblFechaTarea"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
         android:background="#EBFFE0"
         android:text="Fecha:"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="215dp" />
-
-    <TextView
-        android:id="@+id/txtFechaTarea"
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:text="Fecha de la Tarea"
-        android:textSize="16sp"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="235dp" />
+        android:textColor="@color/textview_disablecolor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDescTarea" />
 
     <TextView
         android:id="@+id/lblImpTarea"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
         android:background="#EBFFE0"
         android:text="Importancia:"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="274dp" />
-
-    <TextView
-        android:id="@+id/txtNombreTarea"
-        android:layout_width="340dp"
-        android:layout_height="60dp"
-        android:text="Nombre de la Tarea"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="43dp" />
+        android:textColor="@color/textview_disablecolor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtFechaTarea" />
 
     <Switch
         android:id="@+id/swichtHecha"
         android:layout_width="91dp"
         android:layout_height="45dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="28dp"
         android:text="Hecha"
         android:textColor="#3A3A3A"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnEdit"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnAtras"
         app:layout_constraintTop_toBottomOf="@+id/txtCostoTarea"
-        app:layout_constraintVertical_bias="0.888" />
-
-    <ImageButton
-        android:id="@+id/btnEdit"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="30dp"
-        android:backgroundTint="#FFFFFF"
-        android:onClick="setBtnAtras"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnBorrar"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/swichtHecha"
-        app:layout_constraintTop_toBottomOf="@+id/txtCostoTarea"
-        app:layout_constraintVertical_bias="0.906"
-        app:srcCompat="@mipmap/edit" />
+        app:layout_constraintVertical_bias="0.878" />
 
     <ImageButton
         android:id="@+id/btnAtras"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="28dp"
         android:backgroundTint="#FFFFFF"
         android:onClick="setBtnAtras"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/swichtHecha"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtCostoTarea"
-        app:layout_constraintVertical_bias="0.906"
+        app:layout_constraintVertical_bias="0.899"
         app:srcCompat="@mipmap/previous2" />
 
     <ImageButton
@@ -148,16 +101,108 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="25dp"
         android:backgroundTint="#FFFFFF"
         android:onClick="ventanaConfirmar"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/btnEdit"
         app:layout_constraintTop_toBottomOf="@+id/txtCostoTarea"
-        app:layout_constraintVertical_bias="0.906"
+        app:layout_constraintVertical_bias="0.899"
         app:srcCompat="@mipmap/trashbin" />
+
+    <ImageButton
+        android:id="@+id/btnEdit"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:backgroundTint="#FFFFFF"
+        android:onClick="editarTarea"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/swichtHecha"
+        app:layout_constraintTop_toBottomOf="@+id/txtCostoTarea"
+        app:layout_constraintVertical_bias="0.899"
+        app:srcCompat="@mipmap/edit" />
+
+    <ImageButton
+        android:id="@+id/btnSave"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:backgroundTint="#FFFFFF"
+        android:onClick="saveTarea"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/swichtHecha"
+        app:layout_constraintTop_toBottomOf="@+id/txtCostoTarea"
+        app:layout_constraintVertical_bias="0.899"
+        app:srcCompat="@mipmap/check" />
+
+    <EditText
+        android:id="@+id/txtNombreTarea"
+        android:layout_width="340dp"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="@color/textview_disablecolor"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblNombreTarea" />
+
+    <EditText
+        android:id="@+id/txtFechaTarea"
+        android:layout_width="340dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="date"
+        android:textColor="@color/textview_disablecolor"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblFechaTarea" />
+
+    <MultiAutoCompleteTextView
+        android:id="@+id/txtImpTarea"
+        android:textColor="@color/textview_disablecolor"
+        android:layout_width="340dp"
+        android:layout_height="40dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblImpTarea" />
+
+    <EditText
+        android:id="@+id/txtCostoTarea"
+        android:textColor="@color/textview_disablecolor"
+        android:layout_width="340dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblCostoTarea" />
+
+    <EditText
+        android:id="@+id/txtDescTarea"
+        android:textColor="@color/textview_disablecolor"
+        android:layout_width="340dp"
+        android:layout_height="100dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblDescTarea" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
