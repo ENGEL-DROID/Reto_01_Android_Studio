@@ -189,6 +189,16 @@ public class ListaActivity extends AppCompatActivity {
         if (id == R.id.btnAdd){
             irAltasDeLista();
             //Toast.makeText(this,"Item seleccionado",Toast.LENGTH_LONG).show();
+            return true;
+        }
+        if (id==R.id.cambiarcontra) {
+            Toast.makeText(this,"Se seleccionó Cambiar Contraseña",Toast.LENGTH_LONG).show();
+            return true;
+
+        }
+        if (id==R.id.acercade) {
+            Toast.makeText(this,"Se seleccionó la Acerca de",Toast.LENGTH_LONG).show();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

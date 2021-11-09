@@ -9,6 +9,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Reto_01_Android">
         <activity
+            android:name=".CambiarContrasena"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -18,18 +21,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.reto_01_android.AltasActivity"
+            android:name=".AltasActivity"
             android:label="@string/app_alta" />
         <activity
-            android:name="com.example.reto_01_android.ListaActivity"
+            android:name=".ListaActivity"
             android:label="@string/app_lista" />
         <activity
-            android:name="com.example.reto_01_android.TareaActivity"
+            android:name=".TareaActivity"
             android:label="@string/app_tarea" />
         <activity
-            android:name="com.example.reto_01_android.Pantalla2"
+            android:name=".Pantalla2"
             android:label="@string/app_tarea" />
-
     </application>
 
 </manifest>

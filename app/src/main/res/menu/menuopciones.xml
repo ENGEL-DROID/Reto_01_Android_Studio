@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item
+        android:title="Cambiar contraseña"
+        android:id="@+id/cambiarcontra"/>
+    <item
+        android:title="Acerca de"
+        android:id="@+id/acercade"/>
     <item
         android:id="@+id/btnAdd"
         android:icon="@mipmap/plus3"
