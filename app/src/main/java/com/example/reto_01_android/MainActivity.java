@@ -69,7 +69,10 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences preferencias = getSharedPreferences("agenda",
                 Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferencias.edit();
-        editor.putString(usu, pass);
+        editor.putString("user", usu);
+        editor.putString("pass", pass);
+
+
         editor.commit();
         Toast.makeText(this,"Datos grabados", Toast.LENGTH_LONG).show();
 
@@ -77,20 +80,22 @@ public class MainActivity extends AppCompatActivity {
     }
     public void Entrar(View v)
     {
-        String usu=Usuario.getText().toString();
-        String pass=Password.getText().toString();
+        //String usu=Usuario.getText().toString();
+        //String pass=Password.getText().toString();
 
         if(checkBox.isChecked()==true)
         {
             SharedPreferences prefe=getSharedPreferences("agenda",
                     Context.MODE_PRIVATE);
-            String d=prefe.getString(usu, "");
-            if (d.length()==0) {
+            String user=prefe.getString("user", "");
+            String password=prefe.getString("pass", "");
+
+            if (user.length()==0) {
                 Toast.makeText(this,"No existe dicho nombre en la agenda",
                         Toast.LENGTH_LONG).show();
             }
             else {
-                Password.setText(d);
+                Password.setText(password);
                 Intent i = new Intent(this, Pantalla2.class );
                 startActivity(i);
             }

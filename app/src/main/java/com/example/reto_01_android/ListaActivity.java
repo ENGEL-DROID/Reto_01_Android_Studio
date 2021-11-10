@@ -202,16 +202,37 @@ public class ListaActivity extends AppCompatActivity {
             return true;
         }
         if (id==R.id.cambiarcontra) {
+            CambiarContra();
             Toast.makeText(this,"Se seleccionó Cambiar Contraseña",Toast.LENGTH_LONG).show();
             return true;
 
         }
         if (id==R.id.acercade) {
+            AcercaDe();
             Toast.makeText(this,"Se seleccionó la Acerca de",Toast.LENGTH_LONG).show();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void CambiarContra(){
+        try {
+            Intent i = new Intent(this,CambiarContrasena.class );
+            startActivity(i);
+        } catch (Exception e){
+            Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void AcercaDe(){
+        try {
+            Intent i = new Intent(this,AcercaDe.class );
+            startActivity(i);
+        } catch (Exception e){
+            Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
 
 
 }
