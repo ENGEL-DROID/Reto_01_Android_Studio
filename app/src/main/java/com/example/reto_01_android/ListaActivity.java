@@ -46,7 +46,7 @@ public class ListaActivity extends AppCompatActivity {
         tareas = new String[tareasList.size()];
         for (int x=0; x<tareasList.size(); x++){
             Tarea obj = tareasList.get(x);
-            tareas[x] = obj.getCodigo();
+            tareas[x] = (x+1) + " - " + obj.getNombre();
         }
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_selectable_list_item, android.R.id.text1, tareas);
@@ -55,8 +55,14 @@ public class ListaActivity extends AppCompatActivity {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                String codigo = adapter.getItem(position);
-                irTarea(getTarea(codigo));
+                try {
+                    //String codigo = adapter.getItem(position);
+                    int codigo = adapter.getPosition(adapter.getItem(position));
+                    //Toast.makeText(getApplicationContext(),"Código del item position: " + codigo,Toast.LENGTH_SHORT).show();
+                    irTarea(getTarea(codigo));
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -81,7 +87,10 @@ public class ListaActivity extends AppCompatActivity {
         return tareasList;
     }
 
-    public Tarea getTarea(String codigo){
+    public Tarea getTarea(int codigo){
+        Tarea obj = tareasList.get(codigo);
+        return obj;
+        /*
         for (int x=0; x<tareasList.size(); x++){
             Tarea obj = tareasList.get(x);
             if (obj.getCodigo().equals(codigo)){
@@ -89,6 +98,7 @@ public class ListaActivity extends AppCompatActivity {
             }
         }
         return null;
+        */
     }
 
     public void setTareaHecha(Tarea tarea){
@@ -96,10 +106,10 @@ public class ListaActivity extends AppCompatActivity {
         SQLiteDatabase bd = admin.getWritableDatabase();
         int codigo = Integer.parseInt(tarea.getCodigo());
         String nombre = tarea.getNombre();
-        String descripcion = tarea.getNombre();
-        String fecha = tarea.getNombre();
-        String prioridad = tarea.getNombre();
-        String coste = tarea.getNombre();
+        String descripcion = tarea.getDescripcion();
+        String fecha = tarea.getFecha();
+        String prioridad = tarea.getPrioridad();
+        String coste = tarea.getCoste();
         ContentValues registro = new ContentValues();
         registro.put("codigo", codigo);
         registro.put("nombre", nombre);

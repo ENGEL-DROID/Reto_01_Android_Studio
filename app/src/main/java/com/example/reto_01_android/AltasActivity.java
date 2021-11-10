@@ -73,19 +73,32 @@ public class AltasActivity extends AppCompatActivity implements AdapterView.OnIt
 
     // ----------------------------  SQLite -------------------------------
     public void alta(View v) {
-        boolean control = true;
+        boolean control = true, rev = true;
         int color = Color.MAGENTA;
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
         // ------------------- Inicio Calcular el valor del código ---------------------
+
+        Cursor fila = bd.rawQuery("select codigo from tareas", null);
         int n = 0;
-        Cursor fila = bd.rawQuery("select * from tareas", null);
-        fila.moveToFirst();
-        while(!fila.isAfterLast()){
-            n++;
-            fila.moveToNext();
+        if (fila.getCount() > 0){
+            while (rev){
+                n = (int) (Math.random() * 1000) + 1;
+                Toast.makeText(this, "Número random: " + n,Toast.LENGTH_LONG).show();
+                fila.moveToFirst();
+                while(!fila.isAfterLast()){
+                    if (fila.getInt(0) == n){
+                        rev = true;
+                    } else {
+                        rev = false;
+                    }
+                    fila.moveToNext();
+                }
+            }
+        } else {
+            n = 1;
         }
-        codigo = n + 1;
+        codigo = n;
         // ------------------- Fin Calcular el valor del código ---------------------
         nombre = txtNombre.getText().toString();
         if(nombre.length() < 1){

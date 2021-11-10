@@ -104,29 +104,11 @@ public class TareaActivity extends AppCompatActivity {
     }
 
     public void modificarTarea(Tarea tarea){
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
-        SQLiteDatabase bd = admin.getWritableDatabase();
-        int codigo = Integer.parseInt(tarea.getCodigo());
-        String nombre = nombreTarea.getText().toString();
-        String descripcion = descTarea.getText().toString();
-        String fecha = fechaTarea.getText().toString();
-        String prioridad = impTarea.getText().toString();
-        String coste = costoTarea.getText().toString();
-        ContentValues registro = new ContentValues();
-        registro.put("codigo", codigo);
-        registro.put("nombre", nombre);
-        registro.put("descripcion", descripcion);
-        registro.put("fecha", fecha);
-        registro.put("prioridad", prioridad);
-        registro.put("coste", coste);
-        registro.put("hecha", "no");
-        //int cant = bd.update("tareas", registro, "codigo=" + codigo,null);
-        bd.update("tareas", registro, "codigo=" + codigo,null);
-        bd.close();
-        /*if (cant == 1)
-            Toast.makeText(this, "Tarea hecha!",Toast.LENGTH_SHORT).show();
-        else
-            Toast.makeText(this, "No existe una tarea con ese código!", Toast.LENGTH_SHORT).show();*/
+        tarea.setNombre(nombreTarea.getText().toString());
+        tarea.setDescripcion(descTarea.getText().toString());
+        tarea.setFecha(fechaTarea.getText().toString());
+        tarea.setPrioridad(impTarea.getText().toString());
+        tarea.setCoste(costoTarea.getText().toString());
     }
 
     public void setBorrarTarea(){
