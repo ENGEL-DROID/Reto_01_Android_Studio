@@ -46,7 +46,10 @@ public class ListaActivity extends AppCompatActivity {
         tareas = new String[tareasList.size()];
         for (int x=0; x<tareasList.size(); x++){
             Tarea obj = tareasList.get(x);
-            tareas[x] = (x+1) + " - " + obj.getNombre();
+            if(obj.getHecha().equals("no"))
+                tareas[x] = "      " + (x+1) + " - " + obj.getNombre();
+            else if(obj.getHecha().equals("si"))
+                tareas[x] = "✔️ " + (x+1) + " - " + obj.getNombre();
         }
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_selectable_list_item, android.R.id.text1, tareas);
@@ -202,16 +205,37 @@ public class ListaActivity extends AppCompatActivity {
             return true;
         }
         if (id==R.id.cambiarcontra) {
+            CambiarContra();
             Toast.makeText(this,"Se seleccionó Cambiar Contraseña",Toast.LENGTH_LONG).show();
             return true;
 
         }
         if (id==R.id.acercade) {
+            AcercaDe();
             Toast.makeText(this,"Se seleccionó la Acerca de",Toast.LENGTH_LONG).show();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void CambiarContra(){
+        try {
+            Intent i = new Intent(this,CambiarContrasena.class );
+            startActivity(i);
+        } catch (Exception e){
+            Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void AcercaDe(){
+        try {
+            Intent i = new Intent(this,AcercaDe.class );
+            startActivity(i);
+        } catch (Exception e){
+            Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
 
 
 }

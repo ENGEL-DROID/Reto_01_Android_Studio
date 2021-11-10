@@ -5,6 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Spinner
+        android:id="@+id/txtImpTarea"
+        android:layout_width="340dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="36dp"
+        android:dropDownWidth="wrap_content"
+        android:textColor="@color/textview_disablecolor"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblImpTarea" />
+
     <TextView
         android:id="@+id/lblNombreTarea"
         android:layout_width="340dp"
@@ -35,7 +49,7 @@
         android:id="@+id/lblCostoTarea"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="7dp"
         android:background="#EBFFE0"
         android:text="Costo:"
         android:textColor="@color/textview_disablecolor"
@@ -148,7 +162,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:textColor="@color/textview_disablecolor"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -158,34 +172,26 @@
         android:id="@+id/txtFechaTarea"
         android:layout_width="340dp"
         android:layout_height="40dp"
+        android:clickable="true"
         android:ems="10"
+        android:focusable="false"
         android:inputType="date"
+        android:onClick="openDatePicker"
         android:textColor="@color/textview_disablecolor"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblFechaTarea" />
 
-    <MultiAutoCompleteTextView
-        android:id="@+id/txtImpTarea"
-        android:textColor="@color/textview_disablecolor"
-        android:layout_width="340dp"
-        android:layout_height="40dp"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblImpTarea" />
-
     <EditText
         android:id="@+id/txtCostoTarea"
-        android:textColor="@color/textview_disablecolor"
         android:layout_width="340dp"
         android:layout_height="40dp"
         android:ems="10"
         android:inputType="numberDecimal"
-        android:textSize="14sp"
+        android:textColor="@color/textview_disablecolor"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -193,13 +199,13 @@
 
     <EditText
         android:id="@+id/txtDescTarea"
-        android:textColor="@color/textview_disablecolor"
         android:layout_width="340dp"
         android:layout_height="100dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        android:textSize="14sp"
+        android:textColor="@color/textview_disablecolor"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

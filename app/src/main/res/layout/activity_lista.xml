@@ -44,7 +44,7 @@
         android:layout_width="100dp"
         android:layout_height="48dp"
         android:backgroundTint="#4CAF50"
-        android:onClick="borrarTabla"
+        android:onClick="verTareasTodas"
         android:text="Todas"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

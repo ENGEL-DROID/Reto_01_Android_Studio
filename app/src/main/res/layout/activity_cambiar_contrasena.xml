@@ -7,7 +7,7 @@
     tools:context=".CambiarContrasena">
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/Passwordold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/Passwordnew"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
@@ -32,7 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/Passwordold" />
 
     <Button
         android:id="@+id/button3"
@@ -43,7 +43,7 @@
         android:onClick="Volver"
         android:text="Volver"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+        app:layout_constraintTop_toBottomOf="@+id/Passwordnew" />
 
     <Button
         android:id="@+id/button5"
@@ -55,7 +55,7 @@
         app:layout_constraintEnd_toStartOf="@+id/button3"
         app:layout_constraintHorizontal_bias="0.84"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+        app:layout_constraintTop_toBottomOf="@+id/Passwordnew" />
 
     <TextView
         android:id="@+id/textView4"

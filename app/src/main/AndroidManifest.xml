@@ -9,6 +9,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Reto_01_Android">
         <activity
+            android:name=".AcercaDe"
+            android:exported="true" />
+        <activity
             android:name=".CambiarContrasena"
             android:exported="true" />
         <activity

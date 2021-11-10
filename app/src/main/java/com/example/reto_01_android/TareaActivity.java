@@ -1,37 +1,57 @@
 package com.example.reto_01_android;
 
+import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
-public class TareaActivity extends AppCompatActivity {
+import java.util.Calendar;
 
-    private TextView nombreTarea, descTarea, fechaTarea, impTarea, costoTarea;
+public class TareaActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
+    private TextView nombreTarea, descTarea, fechaTarea, costoTarea;
+    private Spinner impTarea;
+    private String[] prioridades = new String[]{"Baja", "Media", "Alta", "Urgente"};
     private Tarea tareaObj;
     private Switch hecha;
     private ImageButton btnAtras, btnBorrar, btnEdit, btnSave;
+    private DatePickerDialog datePickerDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tarea);
+        initDatePicker();
 
         nombreTarea = (TextView) findViewById(R.id.txtNombreTarea);
         descTarea = (TextView) findViewById(R.id.txtDescTarea);
         fechaTarea = (TextView) findViewById(R.id.txtFechaTarea);
-        impTarea = (TextView) findViewById(R.id.txtImpTarea);
         costoTarea = (TextView) findViewById(R.id.txtCostoTarea);
+
+        impTarea = findViewById(R.id.txtImpTarea);
+        impTarea.setOnItemSelectedListener(this);
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.spinner_item_dark, prioridades);
+        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.spinner_item_dark, prioridades);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        impTarea.setAdapter(adapter);
 
         nombreTarea.setEnabled(false);
         descTarea.setEnabled(false);
@@ -53,7 +73,6 @@ public class TareaActivity extends AppCompatActivity {
         nombreTarea.setText(tareaObj.getNombre().toString());
         descTarea.setText(tareaObj.getDescripcion().toString());
         fechaTarea.setText(tareaObj.getFecha().toString());
-        impTarea.setText(tareaObj.getPrioridad().toString());
         costoTarea.setText(tareaObj.getCoste().toString());
 
         if (tareaObj.getHecha().equals("si")){
@@ -82,11 +101,15 @@ public class TareaActivity extends AppCompatActivity {
         fechaTarea.setEnabled(true);
         impTarea.setEnabled(true);
         costoTarea.setEnabled(true);
+        nombreTarea.setTextColor(Color.MAGENTA);
+        descTarea.setTextColor(Color.MAGENTA);
+        fechaTarea.setTextColor(Color.MAGENTA);
+        costoTarea.setTextColor(Color.MAGENTA);
         btnEdit.setVisibility(View.INVISIBLE);
         btnSave.setVisibility(View.VISIBLE);
-        btnAtras.setEnabled(false);
-        btnBorrar.setEnabled(false);
-        hecha.setEnabled(false);
+        btnAtras.setVisibility(View.INVISIBLE);
+        btnBorrar.setVisibility(View.INVISIBLE);
+        hecha.setVisibility(View.INVISIBLE);
     }
 
     public void saveTarea(View v){
@@ -96,18 +119,22 @@ public class TareaActivity extends AppCompatActivity {
         fechaTarea.setEnabled(false);
         impTarea.setEnabled(false);
         costoTarea.setEnabled(false);
+        nombreTarea.setTextColor(Color.DKGRAY);
+        descTarea.setTextColor(Color.DKGRAY);
+        fechaTarea.setTextColor(Color.DKGRAY);
+        costoTarea.setTextColor(Color.DKGRAY);
         btnEdit.setVisibility(View.VISIBLE);
         btnSave.setVisibility(View.INVISIBLE);
-        btnAtras.setEnabled(true);
-        btnBorrar.setEnabled(true);
-        hecha.setEnabled(true);
+        btnAtras.setVisibility(View.VISIBLE);
+        btnBorrar.setVisibility(View.VISIBLE);
+        hecha.setVisibility(View.VISIBLE);
     }
 
     public void modificarTarea(Tarea tarea){
         tarea.setNombre(nombreTarea.getText().toString());
         tarea.setDescripcion(descTarea.getText().toString());
         tarea.setFecha(fechaTarea.getText().toString());
-        tarea.setPrioridad(impTarea.getText().toString());
+        tarea.setPrioridad(impTarea.getSelectedItem().toString());
         tarea.setCoste(costoTarea.getText().toString());
     }
 
@@ -145,6 +172,73 @@ public class TareaActivity extends AppCompatActivity {
         .setMessage("¿Deseas eliminar ésta Tarea?") // El mensaje
         .create();// No olvides llamar a Create, ¡pues eso crea el AlertDialog!
         dialogo.show();
+    }
+
+    // ----------------------------  Spinner Prioridades -------------------------------
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        // Toast msg = Toast.makeText(this, "Se ha seleccionado un item", Toast.LENGTH_SHORT);
+        // msg.show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        ((TextView) parent.getChildAt(0)).setTextColor(Color.BLUE);
+        ((TextView) parent.getChildAt(0)).setTextSize(5);
+    }
+
+    // ----------------------------  DatePicker -------------------------------
+    private String getTodaysDate(){
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        month = month + 1;
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        return makeDateString(day, month, year);
+    }
+
+    private void initDatePicker(){
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int day) {
+                month = month + 1;
+                String date = makeDateString(day, month, year);
+                fechaTarea.setText(date);
+            }
+        };
+
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+
+        int style = android.app.AlertDialog.THEME_HOLO_LIGHT;
+
+        datePickerDialog = new DatePickerDialog(this, style, dateSetListener, year, month, day);
+    }
+
+    private String makeDateString(int day, int month, int year) {
+        return day + " " + getMonthFormat(month) + " " + year;
+    }
+
+    private String getMonthFormat(int month){
+        if (month == 1) return "ENE";
+        if (month == 2) return "FEB";
+        if (month == 3) return "MAR";
+        if (month == 4) return "ABR";
+        if (month == 5) return "MAY";
+        if (month == 6) return "JUN";
+        if (month == 7) return "JUL";
+        if (month == 8) return "AGO";
+        if (month == 9) return "SEP";
+        if (month == 10) return "OCT";
+        if (month == 11) return "NOV";
+        if (month == 12) return "DIC";
+        return "ENE";
+    }
+
+    public void openDatePicker(View v){
+        datePickerDialog.show();
     }
 
 }
