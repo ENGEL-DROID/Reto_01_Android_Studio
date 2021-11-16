@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Pantalla2">
+    tools:context=".Home">
 
     <Button
         android:id="@+id/button4"
@@ -13,7 +13,7 @@
         android:layout_marginTop="48dp"
         android:backgroundTint="@color/teal_200"
         android:onClick="Volver"
-        android:text="@string/volver"
+        android:text="@string/btnVolver"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
@@ -23,7 +23,7 @@
         android:layout_width="116dp"
         android:layout_height="48dp"
         android:layout_marginTop="40dp"
-        android:text="@string/tareas"
+        android:text="@string/lblTareas"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -37,7 +37,7 @@
         android:layout_marginTop="48dp"
         android:backgroundTint="@color/teal_200"
         android:onClick="Crear"
-        android:text="Crear Tarea"
+        android:text="@string/btnCrearTarea"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -49,7 +49,7 @@
         android:layout_marginTop="32dp"
         android:backgroundTint="@color/teal_200"
         android:onClick="Listar"
-        android:text="Lista de Tareas"
+        android:text="@string/btnListaTarea"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"

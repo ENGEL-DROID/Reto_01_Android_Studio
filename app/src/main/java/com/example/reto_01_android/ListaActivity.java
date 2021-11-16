@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.MainThread;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -42,22 +43,21 @@ public class ListaActivity extends AppCompatActivity {
         }
 
         lista = (ListView) findViewById(R.id.listaMarco);
-
         crearListaTareas(getTareasList());
     }
 
     public void crearListaTareas(ArrayList<Tarea> tareasList){
-        tareas = new String[tareasList.size()];
-        for (int x=0; x<tareasList.size(); x++){
-            Tarea obj = tareasList.get(x);
-            if(obj.getHecha().equals("no"))
-                tareas[x] = "      " + (x+1) + " - " + obj.getNombre();
-            else if(obj.getHecha().equals("si"))
-                tareas[x] = "✔️ " + (x+1) + " - " + obj.getNombre();
-        }
+//        tareas = new String[tareasList.size()];
+//        for (int x=0; x<tareasList.size(); x++){
+//            Tarea obj = tareasList.get(x);
+//            if(obj.getHecha().equals("no"))
+//                tareas[x] = "      " + (x+1) + " - " + obj.getNombre();
+//            else if(obj.getHecha().equals("si"))
+//                tareas[x] = "✔️ " + (x+1) + " - " + obj.getNombre();
+//        }
         //final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 //android.R.layout.simple_selectable_list_item, android.R.id.text1, tareas);
-        AdaptadorListItems adapter = new AdaptadorListItems(this);
+        AdaptadorListItems adapter = new AdaptadorListItems(this, tareasList);
         lista.setAdapter(adapter);
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -190,6 +190,22 @@ public class ListaActivity extends AppCompatActivity {
         }
     }
 
+    public void irHome() {
+        try {
+            Intent i = new Intent(this, Home.class );
+            startActivity(i);
+            finish();
+        } catch (Exception e){
+            Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    @MainThread
+    public void onBackPressed(){
+        irHome();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         try {
@@ -204,20 +220,20 @@ public class ListaActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+        if (id == R.id.btnHome){
+            irHome();
+            return true;
+        }
         if (id == R.id.btnAdd){
             irAltasDeLista();
-            //Toast.makeText(this,"Item seleccionado",Toast.LENGTH_LONG).show();
             return true;
         }
         if (id==R.id.cambiarcontra) {
             CambiarContra();
-            Toast.makeText(this,"Se seleccionó Cambiar Contraseña",Toast.LENGTH_LONG).show();
             return true;
-
         }
         if (id==R.id.acercade) {
             AcercaDe();
-            Toast.makeText(this,"Se seleccionó la Acerca de",Toast.LENGTH_LONG).show();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -245,10 +261,12 @@ public class ListaActivity extends AppCompatActivity {
     class AdaptadorListItems extends ArrayAdapter<Tarea> {
 
         AppCompatActivity appCompatActivity;
+        ArrayList<Tarea> tareaLista;
 
-        AdaptadorListItems(AppCompatActivity context) {
-            super(context, R.layout.list_item, tareasList);
+        AdaptadorListItems(AppCompatActivity context, ArrayList<Tarea> tareaLista) {
+            super(context, R.layout.list_item, tareaLista);
             appCompatActivity = context;
+            this.tareaLista = tareaLista;
         }
 
         public View getView(int position, View convertView, ViewGroup parent) {
@@ -256,20 +274,22 @@ public class ListaActivity extends AppCompatActivity {
             View item = inflater.inflate(R.layout.list_item, null);
 
             TextView textView1 = item.findViewById(R.id.textView);
-            textView1.setText(tareasList.get(position).getNombre());
+
+            textView1.setText(tareaLista.get(position).getNombre());
+
             ImageView imageView1 = item.findViewById(R.id.imageView);
             ImageView imageView2 = item.findViewById(R.id.imageView2);
 
-            if (tareasList.get(position).getHecha().equals("si")){
+            if (tareaLista.get(position).getHecha().equals("si")){
                 imageView1.setImageResource(R.mipmap.hecha);
             }
-            if (tareasList.get(position).getPrioridad().equals("Baja")){
+            if (tareaLista.get(position).getPrioridad().equals("Baja")){
                 imageView2.setImageResource(R.mipmap.imptarea1250);
-            } else if (tareasList.get(position).getPrioridad().equals("Media")){
+            } else if (tareaLista.get(position).getPrioridad().equals("Media")){
                 imageView2.setImageResource(R.mipmap.imptarea2250);
-            } else if (tareasList.get(position).getPrioridad().equals("Alta")){
+            } else if (tareaLista.get(position).getPrioridad().equals("Alta")){
                 imageView2.setImageResource(R.mipmap.imptarea3250);
-            } else if (tareasList.get(position).getPrioridad().equals("Urgente")){
+            } else if (tareaLista.get(position).getPrioridad().equals("Urgente")){
                 imageView2.setImageResource(R.mipmap.imptarea4250);
             }
             return(item);

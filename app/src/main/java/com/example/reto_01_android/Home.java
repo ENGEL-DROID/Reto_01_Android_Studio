@@ -1,8 +1,10 @@
 package com.example.reto_01_android;
 
+import androidx.annotation.MainThread;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.ExifInterface;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,18 +12,32 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 
-public class Pantalla2 extends AppCompatActivity {
+public class Home extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla2);
     }
-public void Volver(View v)
-{
-    finish();
 
-}
+    public void Volver(View v) {
+        finish();
+    }
+
+    private static final int INTERVALO = 2000; //2 segundos para salir
+    private long tiempoPrimerClick;
+    @Override
+    @MainThread
+    public void onBackPressed(){
+        if (tiempoPrimerClick + INTERVALO > System.currentTimeMillis()){
+            super.onBackPressed();
+            finish();
+        }else {
+            Toast.makeText(this, "Vuelve a presionar para salir", Toast.LENGTH_SHORT).show();
+        }
+        tiempoPrimerClick = System.currentTimeMillis();
+    }
+
     public void Crear(View v)
     {
         Intent i = new Intent(this, AltasActivity.class );

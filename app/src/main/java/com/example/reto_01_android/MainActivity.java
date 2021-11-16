@@ -8,9 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.AttributeSet;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -96,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             }
             else {
                 Password.setText(password);
-                Intent i = new Intent(this, Pantalla2.class );
+                Intent i = new Intent(this, Home.class );
                 startActivity(i);
             }
         }

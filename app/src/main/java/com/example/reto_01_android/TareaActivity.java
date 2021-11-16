@@ -19,6 +19,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.MainThread;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -107,9 +108,16 @@ public class TareaActivity extends AppCompatActivity implements AdapterView.OnIt
                 i.putExtra("hecha", "no");
             }
             startActivity(i);
+            finish();
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
         }
+    }
+
+    @Override
+    @MainThread
+    public void onBackPressed(){
+        setBtnAtras(null);
     }
 
     public void editarTarea(View v){

@@ -1,5 +1,6 @@
 package com.example.reto_01_android;
 
+import androidx.annotation.MainThread;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
@@ -69,6 +70,13 @@ public class AltasActivity extends AppCompatActivity implements AdapterView.OnIt
         txtCoste.setText("");
         Intent i = new Intent(this,ListaActivity.class );
         startActivity(i);
+        finish();
+    }
+
+    @Override
+    @MainThread
+    public void onBackPressed(){
+        irListadeAltas(null);
     }
 
     // ----------------------------  SQLite -------------------------------
