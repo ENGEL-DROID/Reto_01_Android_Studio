@@ -84,7 +84,7 @@ public class AltasActivity extends AppCompatActivity implements AdapterView.OnIt
         if (fila.getCount() > 0){
             while (rev){
                 n = (int) (Math.random() * 1000) + 1;
-                Toast.makeText(this, "Número random: " + n,Toast.LENGTH_LONG).show();
+                //Toast.makeText(this, "Número random: " + n,Toast.LENGTH_LONG).show();
                 fila.moveToFirst();
                 while(!fila.isAfterLast()){
                     if (fila.getInt(0) == n){

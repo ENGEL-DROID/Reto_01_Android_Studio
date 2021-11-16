@@ -5,12 +5,16 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -51,8 +55,9 @@ public class ListaActivity extends AppCompatActivity {
             else if(obj.getHecha().equals("si"))
                 tareas[x] = "✔️ " + (x+1) + " - " + obj.getNombre();
         }
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_selectable_list_item, android.R.id.text1, tareas);
+        //final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                //android.R.layout.simple_selectable_list_item, android.R.id.text1, tareas);
+        AdaptadorListItems adapter = new AdaptadorListItems(this);
         lista.setAdapter(adapter);
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -233,6 +238,41 @@ public class ListaActivity extends AppCompatActivity {
             startActivity(i);
         } catch (Exception e){
             Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
+//  ------------------------   CLASE ADAPTADOR LISTVIEW   ------------------------
+    class AdaptadorListItems extends ArrayAdapter<Tarea> {
+
+        AppCompatActivity appCompatActivity;
+
+        AdaptadorListItems(AppCompatActivity context) {
+            super(context, R.layout.list_item, tareasList);
+            appCompatActivity = context;
+        }
+
+        public View getView(int position, View convertView, ViewGroup parent) {
+            LayoutInflater inflater = appCompatActivity.getLayoutInflater();
+            View item = inflater.inflate(R.layout.list_item, null);
+
+            TextView textView1 = item.findViewById(R.id.textView);
+            textView1.setText(tareasList.get(position).getNombre());
+            ImageView imageView1 = item.findViewById(R.id.imageView);
+            ImageView imageView2 = item.findViewById(R.id.imageView2);
+
+            if (tareasList.get(position).getHecha().equals("si")){
+                imageView1.setImageResource(R.mipmap.hecha);
+            }
+            if (tareasList.get(position).getPrioridad().equals("Baja")){
+                imageView2.setImageResource(R.mipmap.imptarea1250);
+            } else if (tareasList.get(position).getPrioridad().equals("Media")){
+                imageView2.setImageResource(R.mipmap.imptarea2250);
+            } else if (tareasList.get(position).getPrioridad().equals("Alta")){
+                imageView2.setImageResource(R.mipmap.imptarea3250);
+            } else if (tareasList.get(position).getPrioridad().equals("Urgente")){
+                imageView2.setImageResource(R.mipmap.imptarea4250);
+            }
+            return(item);
         }
     }
 

@@ -19,8 +19,6 @@
         android:id="@+id/listaMarco"
         android:layout_width="fill_parent"
         android:layout_height="600dp"
-        android:divider="#4CAF50"
-        android:dividerHeight="1dp"
         android:listSelector="#D5FF74"
         android:textFilterEnabled="false"
         tools:ignore="MissingConstraints" /> <!--list selector in green color-->
