@@ -126,10 +126,10 @@ public class TareaActivity extends AppCompatActivity implements AdapterView.OnIt
         fechaTarea.setEnabled(true);
         impTarea.setEnabled(true);
         costoTarea.setEnabled(true);
-        nombreTarea.setTextColor(Color.MAGENTA);
-        descTarea.setTextColor(Color.MAGENTA);
-        fechaTarea.setTextColor(Color.MAGENTA);
-        costoTarea.setTextColor(Color.MAGENTA);
+        nombreTarea.setTextColor(Color.parseColor("#F57C00"));
+        descTarea.setTextColor(Color.parseColor("#F57C00"));
+        fechaTarea.setTextColor(Color.parseColor("#F57C00"));
+        costoTarea.setTextColor(Color.parseColor("#F57C00"));
         btnEdit.setVisibility(View.INVISIBLE);
         btnSave.setVisibility(View.VISIBLE);
         btnAtras.setVisibility(View.INVISIBLE);

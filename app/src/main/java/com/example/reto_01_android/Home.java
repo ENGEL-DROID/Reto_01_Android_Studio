@@ -4,7 +4,6 @@ import androidx.annotation.MainThread;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.ExifInterface;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,7 +16,7 @@ public class Home extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pantalla2);
+        setContentView(R.layout.activity_home);
     }
 
     public void Volver(View v) {
@@ -70,13 +69,13 @@ public class Home extends AppCompatActivity {
         }
         if (id==R.id.cambiarcontra) {
             Cambiarcontra();
-            Toast.makeText(this,"Se seleccionó Cambiar Contraseña",Toast.LENGTH_LONG).show();
+            //Toast.makeText(this,"Se seleccionó Cambiar Contraseña",Toast.LENGTH_LONG).show();
             return true;
 
         }
         if (id==R.id.acercade) {
             AcercaDe();
-            Toast.makeText(this,"Se seleccionó la Acerca de",Toast.LENGTH_LONG).show();
+            //Toast.makeText(this,"Se seleccionó la Acerca de",Toast.LENGTH_LONG).show();
             return true;
         }
         return super.onOptionsItemSelected(item);

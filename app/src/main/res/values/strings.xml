@@ -16,7 +16,7 @@
     <string name="btnPendientes">Pendientes</string>
     <string name="btnTodas">Todas</string>
     <string name="btnCrearTarea">Crear Tarea</string>
-    <string name="btnListaTarea">Lista Tarea</string>
+    <string name="btnListaTarea">Lista Tareas</string>
     <string name="lblCheckBox">Recordar Contraseña</string>
     <string name="lblIniciarSesion">Iniciar Sesion:</string>
     <string name="lblTareas">Tareas:</string>
@@ -34,4 +34,5 @@
     <string name="lblPassword">Password</string>
     <string name="lblRecordarContra">Recordar Contraseña</string>
     <string name="lblHecha">Hecha</string>
+    <string name="txtAcerca">Somos un equipo de trabajo conformado por Iñigo y Engel para la asignatura de Diseño y Desarrollo de Dispositivos Móviles del segundo año del Grado Superior de Desarrollo de Aplicaciones Multiplataforma del Instituto Elorrieta de Bilbao - Vizcaya.</string>
 </resources>

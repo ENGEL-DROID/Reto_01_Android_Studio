@@ -82,7 +82,7 @@ public class AltasActivity extends AppCompatActivity implements AdapterView.OnIt
     // ----------------------------  SQLite -------------------------------
     public void alta(View v) {
         boolean control = true, rev = true;
-        int color = Color.MAGENTA;
+        int color = Color.parseColor("#F57C00");
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
         // ------------------- Inicio Calcular el valor del código ---------------------

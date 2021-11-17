@@ -284,13 +284,13 @@ public class ListaActivity extends AppCompatActivity {
                 imageView1.setImageResource(R.mipmap.hecha);
             }
             if (tareaLista.get(position).getPrioridad().equals("Baja")){
-                imageView2.setImageResource(R.mipmap.imptarea1250);
+                imageView2.setImageResource(R.mipmap.imptarea1);
             } else if (tareaLista.get(position).getPrioridad().equals("Media")){
-                imageView2.setImageResource(R.mipmap.imptarea2250);
+                imageView2.setImageResource(R.mipmap.imptarea2);
             } else if (tareaLista.get(position).getPrioridad().equals("Alta")){
-                imageView2.setImageResource(R.mipmap.imptarea3250);
+                imageView2.setImageResource(R.mipmap.imptarea3);
             } else if (tareaLista.get(position).getPrioridad().equals("Urgente")){
-                imageView2.setImageResource(R.mipmap.imptarea4250);
+                imageView2.setImageResource(R.mipmap.imptarea4);
             }
             return(item);
         }

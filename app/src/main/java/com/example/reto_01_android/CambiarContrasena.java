@@ -33,22 +33,22 @@ public class CambiarContrasena extends AppCompatActivity {
 
         SharedPreferences preferencias = getSharedPreferences("agenda",
                 Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferencias.edit();
         String pass=preferencias.getString("pass", "");
-        editor.commit();
 
-        if(pass==PasswordOld)
-        {
-            String passwordNEW= preferencias.getString("pass", PasswordNew);
-            try {
-                Intent i = new Intent(this,MainActivity.class );
-                startActivity(i);
-            } catch (Exception e){
-                Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
-            }
-        }else
-            Toast.makeText(this,"No existe dicha Contraseña en la agenda",Toast.LENGTH_LONG).show();
+        //if(pass.equals(PasswordOld))
+
+        SharedPreferences.Editor editor = preferencias.edit();
+        editor.putString("pass", PasswordNew);
+        editor.commit();
+        try {
+            //String passnew=preferencias.getString("pass", PasswordNew)
+            Intent i = new Intent(this,MainActivity.class );
+            startActivity(i);
+        } catch (Exception e){
+            Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+        }
     }
+
 
     public void Volver(View v){
         finish();
