@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:dividerPadding="10dp">
+    android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="52dp"
-        android:outlineAmbientShadowColor="@color/purple_500"
-        android:outlineSpotShadowColor="#673AB7"
         android:layout_margin="10dp"
+        android:outlineAmbientShadowColor="@color/purple_500"
+        android:outlineSpotShadowColor="#4F2893"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp">
 

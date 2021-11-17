@@ -3,66 +3,94 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@mipmap/listimg">
 
-    <!--<ListView
-        android:id="@+id/listaMarco"
-        android:layout_width="413dp"
-        android:layout_height="608dp"
-        android:paddingStart="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />-->
-
-    <!-- List Selector Code in ListView -->
     <ListView
         android:id="@+id/listaMarco"
         android:layout_width="fill_parent"
         android:layout_height="600dp"
-        android:listSelector="#D5FF74"
+        android:listSelector="#D6CDFF"
         android:textFilterEnabled="false"
-        tools:ignore="MissingConstraints" /> <!--list selector in green color-->
+        tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/btnPendientes"
-        android:layout_width="130dp"
-        android:layout_height="48dp"
-        android:backgroundTint="#4CAF50"
-        android:onClick="verTareasPendientes"
-        android:text="@string/btnPendientes"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btTodas"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnHechas"
-        app:layout_constraintTop_toBottomOf="@+id/listaMarco"
-        app:layout_constraintVertical_bias="0.325" />
-
-    <Button
-        android:id="@+id/btTodas"
-        android:layout_width="100dp"
-        android:layout_height="48dp"
-        android:backgroundTint="#4CAF50"
-        android:onClick="verTareasTodas"
-        android:text="@string/btnTodas"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnPendientes"
-        app:layout_constraintTop_toBottomOf="@+id/listaMarco"
-        app:layout_constraintVertical_bias="0.325" />
-
-    <Button
-        android:id="@+id/btnHechas"
-        android:layout_width="100dp"
-        android:layout_height="48dp"
-        android:backgroundTint="#4CAF50"
-        android:onClick="verTareasHechas"
-        android:text="@string/btnHechas"
+        app:layout_constraintStart_toStartOf="parent">
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnPendientes"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listaMarco"
-        app:layout_constraintVertical_bias="0.325" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="409dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/btnPendientes"
+                        android:layout_width="120dp"
+                        android:layout_height="50dp"
+                        android:backgroundTint="#673AB7"
+                        android:onClick="verTareasPendientes"
+                        android:text="@string/btnPendientes"
+                        android:textSize="12sp"
+                        app:cornerRadius="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/btTodas"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/btnHechas"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
+                        android:id="@+id/btnHechas"
+                        android:layout_width="120dp"
+                        android:layout_height="50dp"
+                        android:backgroundTint="#673AB7"
+                        android:onClick="verTareasHechas"
+                        android:text="@string/btnHechas"
+                        android:textSize="12sp"
+                        app:cornerRadius="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/btnPendientes"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
+                        android:id="@+id/btTodas"
+                        android:layout_width="120dp"
+                        android:layout_height="50dp"
+                        android:backgroundTint="#673AB7"
+                        android:onClick="verTareasTodas"
+                        android:text="@string/btnTodas"
+                        android:textSize="12sp"
+                        app:cornerRadius="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/btnPendientes"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
